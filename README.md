@@ -1,4 +1,4 @@
-### https://javierarellano.github.io//star-wars//
+### https://javierarellano.github.io/star-wars/
 
 # StarWars
 
