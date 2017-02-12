@@ -12,13 +12,6 @@
 #container2 div{
 	width: 25%;
 }
-#search{
-	flex-basis: 100%;
-}
-input{
-	width: 200px;
-	color: black;
-}
 #buttons{
 	display: flex;
 	justify-content: space-between;
