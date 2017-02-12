@@ -25,6 +25,7 @@ import { DetalleComponent } from './detalle/detalle.component';
 const routes: Routes = [
 //path '' es ruta por defecto; path ** es error;
   { path: '', component: PlanetasComponent },
+  { path: 'starwars', component: PlanetasComponent },
   { path: 'planetas', component: PlanetasComponent },
   { path: 'personajes', component: PersonajesComponent },
   { path: 'naves', component: NavesComponent },

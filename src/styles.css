@@ -11,3 +11,6 @@ body{
 #fondo{
 	background-color: rgba(0, 0, 0, 0.39);
 }
+a{
+	text-decoration: none;
+}
