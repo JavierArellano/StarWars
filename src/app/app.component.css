@@ -1,13 +1,1 @@
-#container1{
-	display: flex;
-	left: 0%;
-	top: 0%;
-	width: 100%;
-	position: fixed;
-	justify-content: space-between;
-	align-items: baseline;
-	background-color: rgba(0, 0, 0, 1);
-	}
-#cornerleft{
-	display: flex;
-}
+

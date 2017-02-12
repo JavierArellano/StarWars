@@ -1,3 +1,14 @@
-<div id="container"><div><a routerLink="/planetas">Planetas</a></div>
-<div><a routerLink="/personajes">Personajes</a></div>
-<div><a routerLink="/naves">Naves</a></div></div>
+<div id='container1' [ngClass]="{'uno': normal,'dos': !normal}">
+	<div id="cornerleft">
+		<h1>
+		  {{title}}
+		</h1>
+		<h5>{{subtitle}}</h5>
+	</div>
+	<div id="container">
+		<div><a routerLink="/planetas">Planetas</a></div>
+		<div><a routerLink="/personajes">Personajes</a></div>
+		<div><a routerLink="/naves">Naves</a></div>
+		<div (click)="cambio()">tema</div>
+	</div>
+</div>

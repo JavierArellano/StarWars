@@ -12,6 +12,7 @@ import { NavesService } from '../naves.service';
   providers: [TodosdatosService]
 })
 export class PersonajesComponent implements OnInit {
+  nombre:string;
 	page:number;
 	planeta:any;
   personajes:any;
@@ -19,6 +20,7 @@ export class PersonajesComponent implements OnInit {
   naves:any;
 
   constructor(private filmsServ: FilmsService, private pjServ: PersonajeService, private todos: TodosdatosService) {
+    this.nombre='';
   	this.page=1;
   	this.subscribtoPlanet();
     this.subscribtoNaves();

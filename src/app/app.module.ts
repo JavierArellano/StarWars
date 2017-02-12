@@ -8,7 +8,9 @@ import { NavesService } from './naves.service';
 import { FilmsService } from './films.service';
 import { TodosdatosService } from './todosdatos.service';
 import { PersonajeService } from './personaje.service';
+import { TemaService } from './tema.service';
 import { Routes, RouterModule } from '@angular/router';
+import {Ng2BreadcrumbModule, BreadcrumbService} from 'ng2-breadcrumb/ng2-breadcrumb';
 
 import { AppComponent } from './app.component';
 import { PlanetasComponent } from './planetas/planetas.component';
@@ -50,13 +52,16 @@ export const routing = RouterModule.forRoot(routes);
     BrowserModule,
     FormsModule,
     HttpModule,
+    Ng2BreadcrumbModule,
     routing
   ],
   providers: [
     PlanetsService,
     FilmsService,
     PersonajeService,
-    NavesService
+    NavesService,
+    TemaService,
+    BreadcrumbService
   ],
   bootstrap: [AppComponent]
 })

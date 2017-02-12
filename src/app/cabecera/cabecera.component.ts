@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TemaService } from '../tema.service';
 
 @Component({
   selector: 'app-cabecera',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
-
-  constructor() { }
+  	title = 'Star Wars';
+  	subtitle = 'Todos los datos estan aquí.';
+	normal:boolean;
+  constructor(private temaServ: TemaService) {
+  	this.normal=true;
+  }
+  cambio(){
+  	this.temaServ.cambia(this.normal);
+  }
 
   ngOnInit() {
+  	this.temaServ.estadoObs().subscribe(
+  		data => {this.normal=data;},);
   }
 
 }

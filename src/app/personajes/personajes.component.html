@@ -1,5 +1,5 @@
 <div id="container2" *ngIf="personajes">
-<div id="search">Búsqueda: <input type="text" placeholder="Nombre del personaje a buscar"></div>
+<div id="search">Búsqueda: <input type="text" placeholder="Nombre del personaje a buscar" [(ngModel)]="nombre"></div>
 <div *ngFor="let person of personajes.results;let i=index;" id={{i}}>
 	<p>{{person.name}}</p> 
 	<ul>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TemaService } from '../tema.service';
 
 @Component({
   selector: 'app-pie',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pie.component.css']
 })
 export class PieComponent implements OnInit {
-
-  constructor() { }
-
+	normal:boolean;
+  constructor(private temaServ: TemaService) {
+  	this.normal=true;
+  }
   ngOnInit() {
+  	this.temaServ.estadoObs().subscribe(
+  		data => {this.normal=data;},);
   }
 
 }
