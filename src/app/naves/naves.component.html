@@ -1,0 +1,33 @@
+<div id="container2" *ngIf="naves">
+<div *ngFor="let nave of naves.results;let i=index;" id={{i}}>
+	<p>{{nave.name}}</p> 
+	<ul>
+		<li>Modelo: {{nave.model}}</li>
+		<li>Ensamblada por: {{nave.manufacturer}}</li>
+		<li>Precio: {{nave.cost_in_credits}} créditos</li>
+		<li>Tamaño: {{nave.length}}m</li>
+		<li>Velocidad máxima en superficie: {{nave.max_atmosphering_speed}}</li>
+		<li>Tripulacion: {{nave.crew}}</li>
+		<li>Pasageros: {{nave.passengers}}</li>
+		<li>Capacidad de carga: {{nave.cargo_capacity}}</li>
+		<li>Ratio de hipervelocidad: {{nave.hyperdrive_rating}}</li>
+		<li>Clase de nave: {{nave.starship_class}}</li>
+
+		<li *ngIf="nave.pilots.length!=0" (click)='mostrar($event)'>Pilotos de la nave: {{nave.pilots.length}}
+			<ul *ngIf="naves" style="display: none;">
+				<li *ngFor="let pilot of nave.pilots;"> <a routerLink="/detalle/{{conseguirDato(pilot)}}">{{buscarPj(pilot)}}</a> </li>
+			</ul>
+		</li>
+
+		<li *ngIf="nave.films.length!=0" (click)='mostrar($event)'>Peliculas en las que aparece: {{nave.films.length}}
+			<ul *ngIf="films" style="display: none;">
+				<li *ngFor="let peli of nave.films;"> <a routerLink="/detalle/{{conseguirDato(peli)}}">{{buscarPeli(peli)}}</a> </li>
+			</ul>
+		</li>
+	</ul>
+</div></div>
+<div id='buttons'>
+	<div id='prev' (click)='anteriorPeti()' [ngClass]="{'oculto':page==1, 'visible':page>1}">Anterior</div>
+	<div>Página: {{page}}</div>
+	<div id='next' (click)='siguientePeti()' [ngClass]="{'oculto':page==7, 'visible':page<7}">Siguiente</div>
+</div>	

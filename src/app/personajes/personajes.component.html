@@ -1,0 +1,31 @@
+<div id="container2" *ngIf="personajes">
+<div id="search">Búsqueda: <input type="text" placeholder="Nombre del personaje a buscar"></div>
+<div *ngFor="let person of personajes.results;let i=index;" id={{i}}>
+	<p>{{person.name}}</p> 
+	<ul>
+        <li>Genero: {{person.gender}}</li>
+		<li>Altura: {{person.height}} cm</li>
+		<li>Peso: {{person.mass}} kg</li>
+		<li>Color de pelo: {{person.hair_color}}</li>
+		<li>Color de piel: {{person.skin_color}}</li>
+		<li>Año de nacimiento: {{person.birth_year}}</li>
+		<li *ngIf="planeta">Planeta natal: <a routerLink="/detalle/{{conseguirDato(person.homeworld)}}">{{buscarPl(person.homeworld)}}</a></li>
+
+		<li *ngIf="person.starships.length!=0" (click)='mostrar($event)'>Naves en las que ha viajado: {{person.starships.length}}
+			<ul *ngIf="naves" style="display: none;">
+				<li *ngFor="let na of person.starships;"> <a routerLink="/detalle/{{conseguirDato(na)}}">{{buscarNave(na)}}</a> </li>
+			</ul>
+		</li>
+
+		<li *ngIf="person.films.length!=0" (click)='mostrar($event)'>Peliculas en las que aparece: {{person.films.length}}
+			<ul *ngIf="films" style="display: none;">
+				<li *ngFor="let peli of person.films;"> <a routerLink="/detalle/{{conseguirDato(peli)}}">{{buscarPeli(peli)}}</a> </li>
+			</ul>
+		</li>
+	</ul>
+</div></div>
+<div id='buttons'>
+	<div id='prev' (click)='anteriorPeti()' [ngClass]="{'oculto':page==1, 'visible':page>1}">Anterior</div>
+	<div>Página: {{page}}</div>
+	<div id='next' (click)='siguientePeti()' [ngClass]="{'oculto':page==7, 'visible':page<7}">Siguiente</div>
+</div>	

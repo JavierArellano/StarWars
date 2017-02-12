@@ -1,0 +1,31 @@
+<div id="container2" *ngIf="planetas">
+<div id="search">Búsqueda: <input type="text" placeholder="Nombre del planeta a buscar"></div>
+<div *ngFor="let planet of planetas.results;let i=index;" id={{i}}>
+	<p>{{planet.name}}</p> 
+	<ul>
+		<li>Tipo de terreno: {{planet.terrain}}</li>
+		<li>Clima: {{planet.climate}}</li>
+		<li>Diametro: {{planet.diameter}}m</li>
+		<li>Duracion del año: {{planet.orbital_period}} dias</li>
+		<li>Duracion dia: {{planet.rotation_period}} horas</li>
+
+		<li *ngIf="planet.residents.length!=0" (click)='mostrar($event)'>Personajes: {{planet.residents.length}}
+			<ul *ngIf="personajes" style="display: none;">
+				<li *ngFor="let pj of planet.residents;"> <a routerLink="/detalle/{{conseguirDato(pj)}}">{{buscarPj(pj)}}</a> </li>
+			</ul>
+		</li>
+
+		<li *ngIf="planet.films.length!=0" (click)='mostrar($event)'>Peliculas en las que aparece: {{planet.films.length}}
+			<ul *ngIf="films" style="display: none;">
+				<li *ngFor="let peli of planet.films;"> <a routerLink="/detalle/{{conseguirDato(peli)}}">{{buscarPeli(peli)}}</a> </li>
+			</ul>
+		</li>
+		
+		<li *ngIf="planet.population!='unknown'">Poblacion: {{planet.population}}</li>
+	</ul>
+</div></div>
+<div id='buttons'>
+	<div id='prev' (click)='anteriorPeti()' [ngClass]="{'oculto':page==1, 'visible':page>1}">Anterior</div>
+	<div>Página: {{page}}</div>
+	<div id='next' (click)='siguientePeti()' [ngClass]="{'oculto':page==7, 'visible':page<7}">Siguiente</div>
+</div>	

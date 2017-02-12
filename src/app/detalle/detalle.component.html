@@ -1,0 +1,107 @@
+<div id="container2" *ngIf="tipo == 'starships'">
+	<div>
+	<p>{{objeto.name}}</p> 
+	<ul>
+		<li>Modelo: {{objeto.model}}</li>
+		<li>Ensamblada por: {{objeto.manufacturer}}</li>
+		<li>Precio: {{objeto.cost_in_credits}} créditos</li>
+		<li>Tamaño: {{objeto.length}}m</li>
+		<li>Velocidad máxima en superficie: {{objeto.max_atmosphering_speed}}</li>
+		<li>Tripulacion: {{objeto.crew}}</li>
+		<li>Pasageros: {{objeto.passengers}}</li>
+		<li>Capacidad de carga: {{objeto.cargo_capacity}}</li>
+		<li>Ratio de hipervelocidad: {{objeto.hyperdrive_rating}}</li>
+		<li>Clase de nave: {{objeto.starship_class}}</li>
+
+		<li *ngIf="objeto.pilots.length!=0" (click)='mostrar($event)'>Naves en las que ha viajado: {{objeto.pilots.length}}
+			<ul *ngIf="naves" style="display: none;">
+				<li *ngFor="let pilot of objeto.pilots;"> <a routerLink="/detalle/{{conseguirDato(pilot)}}">{{buscarPj(pilot)}}</a> </li>
+			</ul>
+		</li>
+
+		<li *ngIf="objeto.films.length!=0" (click)='mostrar($event)'>Peliculas en las que aparece: {{objeto.films.length}}
+			<ul *ngIf="films" style="display: none;">
+				<li *ngFor="let peli of objeto.films;"> <a routerLink="/detalle/{{conseguirDato(peli)}}">{{buscarPeli(peli)}}</a> </li>
+			</ul>
+		</li>
+	</ul>
+</div></div>
+<div id="container2" *ngIf="tipo == 'films'">
+	<div>
+	<p>{{objeto.title}}</p> 
+	<ul>
+		<li>Episodio {{objeto.episode_id}}</li>
+		<li>Director: {{objeto.director}}</li>
+		<li>Productor Ejecutivo: {{objeto.producer}}</li>
+		<li (click)='mostrar($event)'>Texto introductorio: <p id="intro" style="display: none;">{{objeto.opening_crawl}}</p></li>
+		<li>Fecha de lanzamiento: {{objeto.release_date}}</li>
+
+		<li *ngIf="objeto.characters.length!=0" (click)='mostrar($event)'>Personajes: {{objeto.characters.length}}
+			<ul *ngIf="personajes" style="display: none;">
+				<li *ngFor="let pj of objeto.characters;"> <a routerLink="/detalle/{{conseguirDato(pj)}}">{{buscarPj(pj)}}</a> </li>
+			</ul>
+		</li>
+
+		<li *ngIf="objeto.planets.length!=0" (click)='mostrar($event)'>Planetas: {{objeto.planets.length}}
+			<ul *ngIf="planeta" style="display: none;">
+				<li *ngFor="let plan of objeto.planets;"> <a routerLink="/detalle/{{conseguirDato(plan)}}">{{buscarPl(plan)}}</a> </li>
+			</ul>
+		</li>
+
+		<li *ngIf="objeto.starships.length!=0" (click)='mostrar($event)'>Naves: {{objeto.starships.length}}
+			<ul *ngIf="naves" style="display: none;">
+				<li *ngFor="let nave of objeto.starships;"> <a routerLink="/detalle/{{conseguirDato(nave)}}">{{buscarNave(nave)}}</a> </li>
+			</ul>
+		</li>
+	</ul>
+</div></div>
+<div id="container2" *ngIf="tipo == 'people'">
+	<div>
+	<p>{{objeto.name}}</p> 
+	<ul>
+        <li>Genero: {{objeto.gender}}</li>
+		<li>Altura: {{objeto.height}} cm</li>
+		<li>Peso: {{objeto.mass}} kg</li>
+		<li>Color de pelo: {{objeto.hair_color}}</li>
+		<li>Color de piel: {{objeto.skin_color}}</li>
+		<li>Año de nacimiento: {{objeto.birth_year}}</li>
+		<li *ngIf="planeta">Planeta natal: <a routerLink="/detalle/{{conseguirDato(objeto.homeworld)}}">{{buscarPl(objeto.homeworld)}}</a></li>
+
+		<li *ngIf="objeto.starships.length!=0" (click)='mostrar($event)'>Naves en las que ha viajado: {{objeto.starships.length}}
+			<ul *ngIf="naves" style="display: none;">
+				<li *ngFor="let na of objeto.starships;"> <a routerLink="/detalle/{{conseguirDato(na)}}">{{buscarNave(na)}}</a> </li>
+			</ul>
+		</li>
+
+		<li *ngIf="objeto.films.length!=0" (click)='mostrar($event)'>Peliculas en las que aparece: {{objeto.films.length}}
+			<ul *ngIf="films" style="display: none;">
+				<li *ngFor="let peli of objeto.films;"> <a routerLink="/detalle/{{conseguirDato(peli)}}">{{buscarPeli(peli)}}</a> </li>
+			</ul>
+		</li>
+	</ul>
+</div></div>
+<div id="container2" *ngIf="tipo == 'planets'">
+	<div>
+	<p>{{objeto.name}}</p> 
+	<ul>
+		<li>Tipo de terreno: {{objeto.terrain}}</li>
+		<li>Clima: {{objeto.climate}}</li>
+		<li>Diametro: {{objeto.diameter}}m</li>
+		<li>Duracion del año: {{objeto.orbital_period}} dias</li>
+		<li>Duracion dia: {{objeto.rotation_period}} horas</li>
+
+		<li *ngIf="objeto.residents.length!=0" (click)='mostrar($event)'>Personajes: {{objeto.residents.length}}
+			<ul *ngIf="personajes" style="display: none;">
+				<li *ngFor="let pj of objeto.residents;"> <a routerLink="/detalle/{{conseguirDato(pj)}}">{{buscarPj(pj)}}</a> </li>
+			</ul>
+		</li>
+
+		<li *ngIf="objeto.films.length!=0" (click)='mostrar($event)'>Peliculas en las que aparece: {{objeto.films.length}}
+			<ul *ngIf="films" style="display: none;">
+				<li *ngFor="let peli of objeto.films;"> <a routerLink="/detalle/{{conseguirDato(peli)}}">{{buscarPeli(peli)}}</a> </li>
+			</ul>
+		</li>
+		
+		<li *ngIf="objeto.population!='unknown'">Poblacion: {{objeto.population}}</li>
+	</ul>
+</div></div>

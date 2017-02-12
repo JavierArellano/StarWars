@@ -1,0 +1,15 @@
+#container2{
+	margin-top: 80.47px;
+	width: 100%;
+
+	display: flex;
+	flex-flow: wrap;
+	flex-direction: column;
+}
+#container2 div{
+	align-self: center;
+}
+#intro{
+	width: 210px;
+	margin-left: 15px;
+}

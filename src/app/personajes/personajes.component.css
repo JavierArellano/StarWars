@@ -1,0 +1,43 @@
+#container2{
+	margin-top: 80.47px;
+	width: 100%;
+	display: flex;
+	flex-flow: wrap;
+	justify-content: center;
+	align-content: space-around;
+}
+#container2 div{
+	width: 25%;
+}
+#search{
+	flex-basis: 100%;
+}
+input{
+	width: 200px;
+	color: black;
+}
+#buttons{
+	display: flex;
+	justify-content: space-between;
+	align-content: space-around;
+	margin-bottom: 40px;
+}
+#buttons div{
+	padding: 10px;
+}
+.visible{
+	border-radius: 10px;
+	border: solid;
+	background-color: #736F2D;
+	border-color: #736F2D;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.oculto{
+	border-radius: 10px;
+	border: solid;
+	background-color: #353315;
+	border-color: #353315;
+	margin-left: 15px;
+	margin-right: 15px;
+}
