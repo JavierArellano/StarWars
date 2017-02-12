@@ -1,5 +1,4 @@
 <div id="container2" *ngIf="planetas">
-<div id="search">Búsqueda: <input type="text" placeholder="Nombre del planeta a buscar"></div>
 <div *ngFor="let planet of planetas.results;let i=index;" id={{i}}>
 	<p>{{planet.name}}</p> 
 	<ul>
